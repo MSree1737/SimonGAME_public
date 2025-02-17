@@ -36,7 +36,108 @@
   </div>
 
   <script src="jQuery.js"></script>
-  <script src="game.js" charset="utf-8"></script>
+  <script >
+    var gamePattern = [];
+    var colour = ["green", "red", "yellow", "blue"];
+    
+    function nextSequence() {
+        var randomnumber = Math.floor(Math.random() * 4);
+        var choosenColor = colour[randomnumber];
+        gamePattern.push(choosenColor);
+        return choosenColor;
+    }
+    
+    document.querySelector(".red").addEventListener("click", function(event) {
+        document.querySelector(".red").classList.add("pressed");
+        var choosenColor = nextSequence();
+        if (choosenColor === "red") {
+            var audio = new Audio('sounds/wrong.mp3');
+            document.body.style.backgroundColor = "red";
+            setTimeout(function() {
+                document.body.style.backgroundColor = "#011F3F";
+            }, 200);
+            document.querySelector("h1").textContent = "YOUR SCORE:" + (gamePattern.length - 1) + ". Game ended. Press a key to 'Restart'";
+            gamePattern = [];
+        } else {
+            var audio = new Audio('sounds/red.mp3');
+            document.querySelector("h1").textContent = "SCORE : " + gamePattern.length;
+        }
+        audio.play();
+        setTimeout(function() {
+            document.querySelectorAll(".btn").forEach(function(btn) {
+                btn.classList.remove("pressed");
+            });
+        }, 100);
+    });
+    
+    document.querySelector(".blue").addEventListener("click", function(event) {
+        document.querySelector(".blue").classList.add("pressed");
+        var choosenColor = nextSequence();
+        if (choosenColor === "blue") {
+            var audio = new Audio('sounds/wrong.mp3');
+            document.body.style.backgroundColor = "red";
+            setTimeout(function() {
+                document.body.style.backgroundColor = "#011F3F";
+            }, 200);
+            document.querySelector("h1").textContent = "YOUR SCORE:" + (gamePattern.length - 1) + ". Game ended. Press a key to 'Restart'";
+            gamePattern = [];
+        } else {
+            var audio = new Audio('sounds/blue.mp3');
+            document.querySelector("h1").textContent = "SCORE : " + gamePattern.length;
+        }
+        audio.play();
+        setTimeout(function() {
+            document.querySelectorAll(".btn").forEach(function(btn) {
+                btn.classList.remove("pressed");
+            });
+        }, 100);
+    });
+    
+    document.querySelector(".yellow").addEventListener("click", function(event) {
+        document.querySelector(".yellow").classList.add("pressed");
+        var choosenColor = nextSequence();
+        if (choosenColor === "yellow") {
+            var audio = new Audio('sounds/wrong.mp3');
+            document.body.style.backgroundColor = "red";
+            setTimeout(function() {
+                document.body.style.backgroundColor = "#011F3F";
+            }, 200);
+            document.querySelector("h1").textContent = "YOUR SCORE:" + (gamePattern.length - 1) + ". Game ended. Press a key to 'Restart'";
+            gamePattern = [];
+        } else {
+            var audio = new Audio('sounds/yellow.mp3');
+            document.querySelector("h1").textContent = "SCORE : " + gamePattern.length;
+        }
+        audio.play();
+        setTimeout(function() {
+            document.querySelectorAll(".btn").forEach(function(btn) {
+                btn.classList.remove("pressed");
+            });
+        }, 100);
+    });
+    
+    document.querySelector(".green").addEventListener("click", function(event) {
+        document.querySelector(".green").classList.add("pressed");
+        var choosenColor = nextSequence();
+        if (choosenColor === "green") {
+            var audio = new Audio('sounds/wrong.mp3');
+            document.body.style.backgroundColor = "red";
+            setTimeout(function() {
+                document.body.style.backgroundColor = "#011F3F";
+            }, 200);
+            document.querySelector("h1").textContent = "YOUR SCORE:" + (gamePattern.length - 1) + ". Game ended. Press a key to 'Restart'";
+            gamePattern = [];
+        } else {
+            var audio = new Audio('sounds/green.mp3');
+            document.querySelector("h1").textContent = "SCORE : " + gamePattern.length;
+        }
+        audio.play();
+        setTimeout(function() {
+            document.querySelectorAll(".btn").forEach(function(btn) {
+                btn.classList.remove("pressed");
+            });
+        }, 100);
+    });</script>
 
 </body>
 
